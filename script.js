@@ -41,7 +41,7 @@ async function carregarCursos() {
 
 // ---- Cria o HTML de um card de curso -----------------------------------
 function criarCardCurso(curso) {
-  const sigla = SIGLAS[curso.categoria] || "</>";
+  const sigla = SIGLAS[curso.categoria[0]] || "</>";
 
   return `
     <article class="course-card">
@@ -50,7 +50,7 @@ function criarCardCurso(curso) {
         <span class="card-level">${curso.nivel}</span>
       </div>
       <div class="card-body">
-        <p class="card-category">${curso.categoria}</p>
+        <p class="card-category">${curso.categoria.join(", ")}</p>
         <h3 class="card-title">${curso.titulo}</h3>
         <p class="card-teacher">Por ${curso.professor}</p>
         <p class="card-desc">${curso.descricao}</p>
@@ -68,7 +68,7 @@ function renderizarCursos() {
   const termo = termoBusca.trim().toLowerCase();
 
   const filtrados = TODOS_OS_CURSOS.filter((curso) => {
-    const passaFiltro = filtroAtivo === "todos" || curso.categoria === filtroAtivo;
+    const passaFiltro = filtroAtivo === "todos" || curso.categoria.includes(filtroAtivo);
     const passaBusca = curso.titulo.toLowerCase().includes(termo);
     return passaFiltro && passaBusca;
   });
