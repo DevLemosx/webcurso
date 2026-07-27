@@ -1,0 +1,74 @@
+[
+  {
+    "titulo": "HTML5 do Zero ao Avançado",
+    "professor": "Prof. Exemplo",
+    "descricao": "Aprenda a estruturar páginas web com semântica, formulários e acessibilidade.",
+    "categoria": "HTML",
+    "nivel": "Iniciante",
+    "link": "https://www.udemy.com/course/SEU-LINK-DE-AFILIADO-HTML/"
+  },
+  {
+    "titulo": "CSS Moderno: Flexbox e Grid",
+    "professor": "Prof. Exemplo",
+    "descricao": "Domine layouts responsivos usando Flexbox, Grid e boas práticas de CSS.",
+    "categoria": "CSS",
+    "nivel": "Iniciante",
+    "link": "https://www.udemy.com/course/SEU-LINK-DE-AFILIADO-CSS/"
+  },
+  {
+    "titulo": "JavaScript na Prática",
+    "professor": "Prof. Exemplo",
+    "descricao": "Lógica, DOM, eventos e projetos reais para dominar JavaScript do zero.",
+    "categoria": "JavaScript",
+    "nivel": "Intermediário",
+    "link": "https://www.udemy.com/course/SEU-LINK-DE-AFILIADO-JS/"
+  },
+  {
+    "titulo": "Python para Iniciantes",
+    "professor": "Prof. Exemplo",
+    "descricao": "Primeiros passos em Python: sintaxe, estruturas de dados e automação simples.",
+    "categoria": "Python",
+    "nivel": "Iniciante",
+    "link": "https://www.udemy.com/course/SEU-LINK-DE-AFILIADO-PYTHON/"
+  },
+  {
+    "titulo": "Python para Análise de Dados",
+    "professor": "Prof. Exemplo",
+    "descricao": "Pandas, NumPy e visualização de dados para começar em Data Science.",
+    "categoria": "Python",
+    "nivel": "Intermediário",
+    "link": "https://www.udemy.com/course/SEU-LINK-DE-AFILIADO-PYTHON-DADOS/"
+  },
+  {
+    "titulo": "PHP e MySQL: Sites Dinâmicos",
+    "professor": "Prof. Exemplo",
+    "descricao": "Crie sites dinâmicos com PHP, formulários e integração com banco de dados.",
+    "categoria": "PHP",
+    "nivel": "Intermediário",
+    "link": "https://www.udemy.com/course/SEU-LINK-DE-AFILIADO-PHP/"
+  },
+  {
+    "titulo": "SQL Descomplicado",
+    "professor": "Prof. Exemplo",
+    "descricao": "Consultas, joins e modelagem de banco de dados relacional na prática.",
+    "categoria": "SQL",
+    "nivel": "Iniciante",
+    "link": "https://www.udemy.com/course/SEU-LINK-DE-AFILIADO-SQL/"
+  },
+  {
+    "titulo": "Java Orientado a Objetos",
+    "professor": "Prof. Exemplo",
+    "descricao": "Fundamentos de POO em Java com exercícios práticos e projeto final.",
+    "categoria": "Java",
+    "nivel": "Intermediário",
+    "link": "https://www.udemy.com/course/SEU-LINK-DE-AFILIADO-JAVA/"
+  },
+  {
+    "titulo": "JavaScript Avançado: Async e APIs",
+    "professor": "Prof. Exemplo",
+    "descricao": "Promises, async/await e consumo de APIs REST em projetos reais.",
+    "categoria": "JavaScript",
+    "nivel": "Avançado",
+    "link": "https://www.udemy.com/course/SEU-LINK-DE-AFILIADO-JS-AVANCADO/"
+  }
+]
