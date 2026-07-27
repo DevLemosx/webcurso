@@ -1,8 +1,8 @@
 [
   {
-    "titulo": "HTML5 do Zero ao Avançado",
-    "professor": "Prof. Exemplo",
-    "descricao": "Aprenda a estruturar páginas web com semântica, formulários e acessibilidade.",
+    "titulo": "Curso HTML5 e CSS3",
+    "professor": "Prof. Gustavo Guanabara",
+    "descricao": "Aprenda a estruturar páginas web utilizando HTML5 e CSS3, criando páginas com semântica, formulários e boas práticas de desenvolvimento. (Módulo 1 de 5)",
     "categoria": ["HTML", "CSS"],
     "nivel": "Iniciante",
     "link": "https://www.cursoemvideo.com/curso/html5-css3-modulo1/"
