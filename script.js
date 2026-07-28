@@ -102,7 +102,7 @@ const FERRAMENTAS = [
   { nome: "VS Code", link: "https://code.visualstudio.com/", icone: "code" },
   { nome: "Git", link: "https://git-scm.com/", icone: "branch" },
   { nome: "GitHub", link: "https://github.com/", icone: "github" },
-  { nome: "ChatGPT", link: "https://chat.openai.com/", icone: "spark" },
+  { nome: "Claude Code", link: "https://claude.ai/", icone: "spark" },
   { nome: "Figma", link: "https://figma.com/", icone: "layers" }
 ];
 
@@ -110,7 +110,7 @@ const ICONES = {
   code: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 17 3 12l5-5M16 7l5 5-5 5"/></svg>',
   branch: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="6" r="2.2"/><circle cx="6" cy="18" r="2.2"/><circle cx="18" cy="9" r="2.2"/><path d="M6 8.2V15.8M6 8.2C6 12 10 12 12 12h2.2"/></svg>',
   github: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.66.5 12.02c0 5.1 3.29 9.42 7.86 10.95.57.1.79-.25.79-.55v-2.1c-3.2.7-3.87-1.36-3.87-1.36-.53-1.33-1.29-1.68-1.29-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.59.24 2.77.12 3.06.74.8 1.18 1.83 1.18 3.1 0 4.42-2.69 5.4-5.25 5.68.42.36.78 1.07.78 2.16v3.2c0 .3.21.66.8.55A10.53 10.53 0 0 0 23.5 12C23.5 5.66 18.35.5 12 .5Z"/></svg>',
-  spark: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 14 9l7 2-7 2-2 7-2-7-7-2 7-2 2-7Z"/></svg>',
+  spark: '<svg viewBox="0 0 24 24" fill="currentColor" aria-label="Claude"><path d="M12 2.2c1.2 0 2.1 1 2.1 2.2v2.1l1.5-1.5a2.1 2.1 0 0 1 3 3l-1.5 1.5h2.1a2.1 2.1 0 1 1 0 4.2h-2.1l1.5 1.5a2.1 2.1 0 0 1-3 3l-1.5-1.5v2.1a2.1 2.1 0 1 1-4.2 0v-2.1l-1.5 1.5a2.1 2.1 0 0 1-3-3l1.5-1.5H4.8a2.1 2.1 0 1 1 0-4.2h2.1L5.4 8a2.1 2.1 0 0 1 3-3l1.5 1.5V4.4c0-1.2.9-2.2 2.1-2.2Z"/></svg>',
   layers: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 13 9 5 9-5"/></svg>'
 };
 
