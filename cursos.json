@@ -1,10 +1,90 @@
 [
   {
-    "titulo": "Curso HTML5 e CSS3",
+    "titulo": "Curso HTML5 e CSS3: Módulo - 1",
     "professor": "Prof. Gustavo Guanabara",
-    "descricao": "Aprenda a estruturar páginas web utilizando HTML5 e CSS3, criando páginas com semântica, formulários e boas práticas de desenvolvimento. (Módulo 1 de 5)",
+    "descricao": "Aprenda a estruturar páginas web utilizando HTML5 e CSS3, criando páginas com semântica, formulários e boas práticas de desenvolvimento.",
     "categoria": ["HTML", "CSS"],
     "nivel": "Iniciante",
     "link": "https://www.cursoemvideo.com/curso/html5-css3-modulo1/"
+  },
+  {
+    "titulo": "Curso HTML5 e CSS3: Módulo - 2",
+    "professor": "Prof. Gustavo Guanabara",
+    "descricao": "Aprenda a estruturar páginas web utilizando HTML5 e CSS3, criando páginas com semântica, formulários e boas práticas de desenvolvimento.",
+    "categoria": ["HTML", "CSS"],
+    "nivel": "Iniciante",
+    "link": "https://www.cursoemvideo.com/curso/curso-html5-e-css3-modulo-2-de-5-40-horas/"
+  },
+  {
+    "titulo": "Curso HTML5 e CSS3: Módulo - 3",
+    "professor": "Prof. Gustavo Guanabara",
+    "descricao": "Aprenda a estruturar páginas web utilizando HTML5 e CSS3, criando páginas com semântica, formulários e boas práticas de desenvolvimento.",
+    "categoria": ["HTML", "CSS"],
+    "nivel": "Intermediário",
+    "link": "https://www.cursoemvideo.com/curso/curso-html5-e-css3-modulo-3-de-5-40-horas/"
+  },
+  {
+    "titulo": "Curso HTML5 e CSS3: Módulo - 4",
+    "professor": "Prof. Gustavo Guanabara",
+    "descricao": "Aprenda a estruturar páginas web utilizando HTML5 e CSS3, criando páginas com semântica, formulários e boas práticas de desenvolvimento.",
+    "categoria": ["HTML", "CSS"],
+    "nivel": "Intermediário",
+    "link": "https://www.cursoemvideo.com/curso/curso-html5-e-css3-modulo-4-de-5-40-horas/"
+  },
+  {
+    "titulo": "Curso HTML5 e CSS3: Módulo - 5",
+    "professor": "Prof. Gustavo Guanabara",
+    "descricao": "Aprenda a estruturar páginas web utilizando HTML5 e CSS3, criando páginas com semântica, formulários e boas práticas de desenvolvimento.",
+    "categoria": ["HTML", "CSS"],
+    "nivel": "Avançado",
+    "link": "https://www.cursoemvideo.com/curso/curso-html5-e-css3-modulo-5-de-5-40-horas/"
+  },
+  {
+    "titulo": "Desenvolvimento Web Completo - 20 cursos + 20 projetos",
+    "professor": "Udemy",
+    "descricao": "Criar aplicações WEB: Do front ao back-end e banco de dados com HTML5, CSS3, BootStrap 4, JS, ES6, ES7, PHP 7, OO, MySQL, JQuery, MVC, API, IONIC e Wordpress.",
+    "categoria": ["HTML", "CSS", "JavaScript", "PHP", "SQL"],
+    "nivel": "Iniciante",
+    "link": "https://www.cursoemvideo.com/curso/html5-css3-modulo1/"
+  },
+  {
+    "titulo": "Git e GitHub",
+    "professor": "Tiago Matos",
+    "descricao": "Se você quer versionar seus projetos como um profissional, entender Git e GitHub é essencial! Nesta playlist, você vai aprender os comandos mais usados no dia a dia, como commit, branch, merge, pull request e muito mais. Tudo de forma prática e descomplicada!",
+    "categoria": ["Git", "GitHub"],
+    "nivel": "Iniciante",
+    "link": "https://www.youtube.com/watch?v=2c7yWlpWDJM&list=PLcoYAcR89n-qbO7YAVj5S0alABLis_QVU"
+  },
+  {
+    "titulo": "Python 3 – Mundo 1",
+    "professor": "Prof. Gustavo Guanabara",
+    "descricao": "Neste curso, você será guiado de forma progressiva, partindo do básico, para construir uma sólida compreensão da linguagem Python. O objetivo é fazer com que você desenvolva uma base forte em programação, permitindo que, futuramente, possa se especializar em áreas como desenvolvimento web, inteligência artificial, ciência de dados, automação, entre outras.",
+    "categoria": ["Python"],
+    "nivel": "Iniciante",
+    "link": "https://www.cursoemvideo.com/curso/python-3-mundo-1/"
+  },
+  {
+    "titulo": "Python 3 – Mundo 2",
+    "professor": "Prof. Gustavo Guanabara",
+    "descricao": "O Mundo 2 é um passo importante para consolidar o pensamento lógico e preparar o aluno para projetos mais avançados. O curso mostra como o domínio das estruturas de repetição e controle pode transformar seu modo de resolver problemas, tornando o código mais limpo e eficiente.",
+    "categoria": ["Python"],
+    "nivel": "Iniciante",
+    "link": "https://www.cursoemvideo.com/curso/python-3-mundo-2/"
+  },
+  {
+    "titulo": "Python 3 – Mundo 3",
+    "professor": "Prof. Gustavo Guanabara",
+    "descricao": "O Python 3 – Mundo 3 marca o início de uma nova fase na sua jornada com a linguagem mais versátil e popular do mundo. Aqui, o aprendizado vai além do básico: você vai entender como organizar, manipular e otimizar dados com as estruturas que sustentam toda a lógica da programação moderna.",
+    "categoria": ["Python"],
+    "nivel": "Intermediário",
+    "link": "https://www.cursoemvideo.com/curso/python-3-mundo-3/"
+  },
+  {
+    "titulo": "Python 3 – Mundo 4",
+    "professor": "Prof. Gustavo Guanabara",
+    "descricao": "O Python 3 – Mundo 4 é a etapa em que você transforma seus conhecimentos em projetos mais completos. Aqui, você aprende Programação Orientada a Objetos, automação, APIs, manipulação de arquivos e outros recursos essenciais para desenvolver aplicações reais com Python.",
+    "categoria": ["Python"],
+    "nivel": "Avançado",
+    "link": "https://www.cursoemvideo.com/curso/python-3-mundo-4/"
   }
 ]
