@@ -86,5 +86,29 @@
     "categoria": ["Python"],
     "nivel": "Avançado",
     "link": "https://www.cursoemvideo.com/curso/python-3-mundo-4/"
+  },
+  {
+    "titulo": "Curso de Algoritmos e Lógica de Programação",
+    "professor": "Prof. Gustavo Guanabara",
+    "descricao": "O Curso de Algoritmo é a base necessária para quem quer aprender em linguagens famosas do mercado, como C, Java, PHP e muitas outras. Inscreva-se no curso agora mesmo e aprenda as técnicas básicas para a construção de programas para dispositivos eletrônicos.",
+    "categoria": ["Algoritmos", "Lógica de Programação"],
+    "nivel": "Iniciante",
+    "link": "https://www.cursoemvideo.com/curso/curso-de-algoritmo/"
+  },
+  {
+    "titulo": "Curso de Javascript",
+    "professor": "Prof. Gustavo Guanabara",
+    "descricao": "O Curso de JavaScript do Curso em Vídeo é o ponto de partida perfeito para quem quer entrar no mundo da programação ou aperfeiçoar suas habilidades com uma das linguagens mais utilizadas do planeta. Gratuito, completo e 100% online, o curso ensina passo a passo desde os conceitos básicos até recursos modernos da linguagem, sempre com explicações claras e foco na prática.",
+    "categoria": ["JavaScript"],
+    "nivel": "Iniciante",
+    "link": "https://www.cursoemvideo.com/curso/javascript/"
+  },
+  {
+    "titulo": "Java primeiros passos: Lógica de Programação e Algoritmos",
+    "professor": "Udemy",
+    "descricao": "Curso equivalente à disciplina de Lógica de Programação da faculdade, para iniciantes, usando Java como linguagem. Aprenda a programar do zero, com exercícios práticos e projetos.",
+    "categoria": ["Java"],
+    "nivel": "Iniciante",
+    "link": "https://www.udemy.com/course/java-curso-logica-de-programacao/?couponCode=KEEPLEARNING"
   }
 ]
