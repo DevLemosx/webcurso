@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tecnologia | DevLemosx</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="brand">
+      <img src="assets/logo.jpg" alt="Logo DevLemosx" class="brand-logo">
+    </a>
+    <nav class="header-nav">
+      <a href="index.html#cursos">Cursos</a>
+      <a href="roadmaps.html">Roadmaps</a>
+      <a href="index.html#ferramentas">Ferramentas</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero" id="techHeader">
+    <div class="container">
+      <a href="index.html#tecnologias" class="back-link">← Todas as tecnologias</a>
+      <div class="tech-title-row">
+        <span class="tech-badge" id="techBadge">--</span>
+        <h1 class="page-title" id="techNome">Carregando...</h1>
+      </div>
+    </div>
+  </section>
+
+  <section class="tech-section">
+    <div class="container tech-grid">
+
+      <div class="tech-main">
+        <article class="tech-block">
+          <h2 class="tech-block-title">O que é</h2>
+          <p class="tech-block-text" id="techOQueE"></p>
+        </article>
+
+        <article class="tech-block">
+          <h2 class="tech-block-title">Mercado</h2>
+          <p class="tech-block-text" id="techMercado"></p>
+        </article>
+
+        <article class="tech-block">
+          <h2 class="tech-block-title">Onde é usado</h2>
+          <p class="tech-block-text" id="techOndeUsar"></p>
+        </article>
+
+        <article class="tech-block" id="techProjetosBlock" hidden>
+          <h2 class="tech-block-title">Projetos pra praticar</h2>
+          <ul class="step-projects" id="techProjetos"></ul>
+        </article>
+      </div>
+
+      <aside class="tech-sidebar">
+        <div class="salary-card">
+          <p class="section-tag">$ echo $SALARIO_MEDIO</p>
+          <p class="salary-value" id="techSalario">—</p>
+          <p class="salary-note" id="techSalarioNota"></p>
+          <p class="salary-updated" id="techSalarioData"></p>
+        </div>
+
+        <a href="#" id="techRoadmapLink" class="cta-btn cta-block" hidden>Ver roadmap completo →</a>
+      </aside>
+
+    </div>
+  </section>
+
+  <section class="tech-courses-section">
+    <div class="container">
+      <div class="section-head">
+        <p class="section-tag" id="techCursosTag">$ ls ./cursos --tecnologia</p>
+        <h2 class="section-title">Cursos de <span id="techNomeCursos"></span></h2>
+      </div>
+      <div id="techCursosGrid" class="courses-grid">
+        <p class="empty-state">Carregando cursos...</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <img src="assets/logo.jpg" alt="Logo DevLemosx" class="footer-logo">
+    <p class="footer-disclaimer">Alguns links desta página são links de afiliados. Caso você compre por eles, posso receber uma comissão sem custo adicional para você.</p>
+    <p class="footer-copy">© <span id="year"></span> DevLemosx. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="tecnologia.js"></script>
+</body>
+</html>

@@ -78,7 +78,7 @@ img { max-width: 100%; display: block; }
   height: 68px;
 }
 
-.brand-logo { height: 30px; width: auto; }
+.brand-logo { height: 35px; width: auto; }
 
 .header-nav { display: flex; gap: 28px; }
 
@@ -411,6 +411,15 @@ section { padding: 88px 0; }
   color: var(--accent-cyan);
   margin: 0 0 8px;
 }
+
+.card-tech-link {
+  color: var(--accent-cyan);
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  transition: text-decoration-color 0.18s ease;
+}
+
+.card-tech-link:hover { text-decoration-color: var(--accent-cyan); }
 
 .card-title {
   font-family: var(--font-display);
@@ -831,3 +840,112 @@ section { padding: 88px 0; }
   color: var(--accent-cyan);
   flex-shrink: 0;
 }
+
+/* ==========================================================================
+   Páginas de tecnologia
+   ========================================================================== */
+.tech-title-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.tech-badge {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  border-radius: 14px;
+  background: rgba(79, 216, 236, 0.12);
+  border: 1px solid rgba(79, 216, 236, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--accent-cyan);
+}
+
+.tech-section { padding-top: 8px; }
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 40px;
+  align-items: start;
+}
+
+.tech-block { margin-bottom: 32px; }
+
+.tech-block-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin: 0 0 10px;
+  color: var(--accent-cyan);
+}
+
+.tech-block-text {
+  color: var(--text-muted);
+  font-size: 14.5px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.tech-sidebar {
+  position: sticky;
+  top: 88px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.salary-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+}
+
+.salary-value {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin: 6px 0 12px;
+  line-height: 1.2;
+}
+
+.salary-note {
+  font-size: 11.5px;
+  color: var(--text-faint);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.salary-updated {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--accent-cyan);
+  margin: 10px 0 0;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+
+.cta-block {
+  display: block;
+  text-align: center;
+  width: 100%;
+}
+
+.tech-courses-section { border-top: 1px solid var(--border); background: var(--bg-soft); }
+
+@media (max-width: 800px) {
+  .tech-grid { grid-template-columns: 1fr; }
+  .tech-sidebar { position: static; }
+}
+
+/* ==========================================================================
+   Seção "Tecnologias" na home (reaproveita o visual de roadmap-card)
+   ========================================================================== */
+.tech-list-section { border-top: 1px solid var(--border); }

@@ -30,6 +30,9 @@ let TODOS_OS_CURSOS = [];
 let filtroAtivo = "todos";
 let termoBusca = "";
 
+// Tecnologias que já têm página própria (Fase 3) — as demais ficam só como texto
+const PAGINAS_TECNOLOGIA = { HTML: "html", CSS: "css", JavaScript: "javascript" };
+
 const grid = document.getElementById("coursesGrid");
 const emptyState = document.getElementById("emptyState");
 const searchInput = document.getElementById("searchInput");
@@ -61,7 +64,11 @@ function criarCardCurso(curso) {
   const rotuloPreco = curso.gratuito ? "Grátis" : (curso.preco || "Pago");
   const classePreco = curso.gratuito ? "gratis" : "pago";
   const nota = curso.nota ? ` · ⭐ ${Number(curso.nota).toFixed(1)}` : "";
-  const subtitulo = (curso.plataforma ? `${curso.tecnologia} · ${curso.plataforma}` : curso.tecnologia) + nota;
+  const paginaTech = PAGINAS_TECNOLOGIA[curso.tecnologia];
+  const tecnologiaHtml = paginaTech
+    ? `<a href="tecnologia.html?slug=${paginaTech}" class="card-tech-link">${curso.tecnologia}</a>`
+    : curso.tecnologia;
+  const subtitulo = (curso.plataforma ? `${tecnologiaHtml} · ${curso.plataforma}` : tecnologiaHtml) + nota;
   const metaExtra = [curso.carga_horaria, curso.idioma].filter(Boolean).join(" · ");
 
   const bannerConteudo = curso.imagem_url
