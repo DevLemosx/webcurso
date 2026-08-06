@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roadmaps | DevLemosx</title>
+<meta name="description" content="Roadmaps de programação passo a passo: Frontend, Backend e Python.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="brand">
+      <img src="assets/logo.jpg" alt="Logo DevLemosx" class="brand-logo">
+    </a>
+    <nav class="header-nav">
+      <a href="index.html#cursos">Cursos</a>
+      <a href="roadmaps.html" class="active-link">Roadmaps</a>
+      <a href="index.html#ferramentas">Ferramentas</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <p class="section-tag">$ ls ./roadmaps</p>
+      <h1 class="page-title">Escolha sua trilha</h1>
+      <p class="page-subtitle">Passo a passo, do zero até o próximo nível. Marque o que você já concluiu — seu progresso fica salvo só no seu navegador.</p>
+    </div>
+  </section>
+
+  <section class="roadmaps-section">
+    <div class="container">
+      <div id="roadmapsGrid" class="roadmaps-grid">
+        <p class="empty-state">Carregando roadmaps...</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <img src="assets/logo.jpg" alt="Logo DevLemosx" class="footer-logo">
+    <p class="footer-disclaimer">Alguns links desta página são links de afiliados. Caso você compre por eles, posso receber uma comissão sem custo adicional para você.</p>
+    <p class="footer-copy">© <span id="year"></span> DevLemosx. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="roadmaps.js"></script>
+</body>
+</html>
