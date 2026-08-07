@@ -78,7 +78,7 @@ img { max-width: 100%; display: block; }
   height: 68px;
 }
 
-.brand-logo { height: 30px; width: auto; }
+.brand-logo { height: 35px; width: auto; }
 
 .header-nav { display: flex; gap: 28px; }
 
@@ -163,8 +163,8 @@ img { max-width: 100%; display: block; }
 .hero-inner { position: relative; z-index: 1; }
 
 .avatar-ring {
-  width: 96px;
-  height: 96px;
+  width: 140px;
+  height: 140px;
   margin: 0 auto 24px;
   border-radius: 50%;
   padding: 3px;
