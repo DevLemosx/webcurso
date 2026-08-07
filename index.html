@@ -24,6 +24,8 @@
     <nav class="header-nav">
       <a href="#cursos">Cursos</a>
       <a href="roadmaps.html">Roadmaps</a>
+      <a href="downloads.html">Downloads</a>
+      <a href="novidades.html">Novidades</a>
       <a href="#ferramentas">Ferramentas</a>
     </nav>
   </div>
@@ -176,6 +178,20 @@
     </div>
   </section>
 
+  <!-- ============ NEWSLETTER ============ -->
+  <section class="newsletter-section">
+    <div class="container newsletter-inner">
+      <p class="section-tag">$ echo "novos cursos toda semana"</p>
+      <h2 class="section-title">📩 Receba novos cursos gratuitamente</h2>
+      <p class="newsletter-desc">Novos cursos, roadmaps e atualizações — no máximo 1 e-mail por semana. Sem spam.</p>
+      <form id="newsletterForm" class="newsletter-form">
+        <input type="email" id="newsletterEmail" placeholder="Seu melhor e-mail" required>
+        <button type="submit" class="cta-btn">Quero receber</button>
+      </form>
+      <p class="newsletter-feedback" id="newsletterFeedback" hidden></p>
+    </div>
+  </section>
+
 </main>
 
 <!-- ============ RODAPÉ ============ -->
@@ -189,5 +205,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="script.js"></script>
+<script src="newsletter.js"></script>
 </body>
 </html>

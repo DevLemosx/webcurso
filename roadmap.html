@@ -21,6 +21,8 @@
     <nav class="header-nav">
       <a href="index.html#cursos">Cursos</a>
       <a href="roadmaps.html" class="active-link">Roadmaps</a>
+      <a href="downloads.html">Downloads</a>
+      <a href="novidades.html">Novidades</a>
       <a href="index.html#ferramentas">Ferramentas</a>
     </nav>
   </div>
@@ -38,6 +40,8 @@
         <div class="progress-bar"><div class="progress-bar-fill" id="progressFill"></div></div>
         <p class="progress-label" id="progressLabel">0 de 0 etapas concluídas</p>
       </div>
+
+      <button type="button" id="shareRoadmapBtn" class="share-btn">🔗 Compartilhar roadmap</button>
     </div>
   </section>
 
@@ -45,6 +49,26 @@
     <div class="container">
       <div id="stepsList" class="steps-list">
         <p class="empty-state">Carregando etapas...</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BAIXAR ROADMAP EM PDF ============ -->
+  <section class="newsletter-section pdf-gate-section">
+    <div class="container newsletter-inner">
+      <p class="section-tag">$ curl -O ./roadmap.pdf</p>
+      <h2 class="section-title" id="pdfGateTitle">Baixe este roadmap em PDF</h2>
+      <p class="newsletter-desc">Grátis, sem cadastro — as etapas, cursos e projetos num arquivo só.</p>
+
+      <a href="#" id="pdfDownloadBtn" class="cta-btn" download hidden>📥 Baixar PDF agora</a>
+
+      <div class="pdf-email-optin">
+        <p class="pdf-email-optin-text">Quer saber quando eu atualizar esse roadmap?</p>
+        <form id="pdfGateForm" class="newsletter-form newsletter-form-compact">
+          <input type="email" id="pdfGateEmail" placeholder="Seu e-mail (opcional)">
+          <button type="submit" class="btn-secondary">Avisar</button>
+        </form>
+        <p class="newsletter-feedback" id="pdfGateFeedback" hidden></p>
       </div>
     </div>
   </section>

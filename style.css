@@ -1042,3 +1042,171 @@ section { padding: 88px 0; }
   padding-top: 10px;
   border-top: 1px solid var(--border);
 }
+
+/* ==========================================================================
+   Newsletter (Fase 5)
+   ========================================================================== */
+.newsletter-section {
+  background: var(--bg-soft);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+}
+
+.newsletter-inner { max-width: 480px; }
+
+.newsletter-desc {
+  color: var(--text-muted);
+  font-size: 13.5px;
+  margin: 0 0 24px;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.newsletter-form input[type="email"] {
+  flex: 1;
+  min-width: 220px;
+  padding: 13px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.newsletter-form input[type="email"]:focus { border-color: var(--accent-cyan); }
+.newsletter-form input[type="email"]::placeholder { color: var(--text-faint); }
+
+.newsletter-form button { flex-shrink: 0; cursor: pointer; border: none; font-family: var(--font-body); }
+.newsletter-form button:disabled { opacity: 0.6; cursor: default; }
+
+.newsletter-feedback {
+  margin: 16px 0 0;
+  font-size: 13px;
+  font-family: var(--font-mono);
+}
+
+.newsletter-feedback.sucesso { color: var(--accent-cyan); }
+.newsletter-feedback.erro { color: #e88; }
+
+.pdf-gate-link { margin-top: 4px; }
+
+.pdf-email-optin {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.pdf-email-optin-text {
+  font-size: 12.5px;
+  color: var(--text-faint);
+  margin: 0 0 12px;
+}
+
+.newsletter-form-compact input[type="email"] { min-width: 180px; }
+
+.btn-secondary {
+  flex-shrink: 0;
+  padding: 13px 20px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 14px;
+  cursor: pointer;
+  transition: border-color 0.18s ease, color 0.18s ease;
+}
+
+.btn-secondary:hover { border-color: var(--accent-cyan); color: var(--accent-cyan); }
+.btn-secondary:disabled { opacity: 0.6; cursor: default; }
+
+.share-btn {
+  margin-top: 16px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  cursor: pointer;
+  transition: border-color 0.18s ease, color 0.18s ease;
+}
+
+.share-btn:hover { border-color: var(--accent-cyan); color: var(--accent-cyan); }
+
+/* ==========================================================================
+   Changelog / Novidades (Fase 5)
+   ========================================================================== */
+.changelog-section { padding-top: 8px; }
+
+.changelog-list {
+  max-width: 640px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.changelog-day {
+  border-left: 2px solid var(--border);
+  padding-left: 20px;
+  position: relative;
+}
+
+.changelog-day::before {
+  content: "";
+  position: absolute;
+  left: -6px;
+  top: 4px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent-cyan);
+}
+
+.changelog-date {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: var(--accent-cyan);
+  text-transform: capitalize;
+  margin: 0 0 10px;
+}
+
+.changelog-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.changelog-items li {
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+.changelog-summary {
+  background: var(--surface);
+  border: 1px solid var(--accent-cyan);
+  border-radius: var(--radius-lg);
+  padding: 22px 24px;
+  margin-bottom: 8px;
+}
+
+.changelog-summary-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--accent-cyan);
+  margin: 0 0 12px;
+}

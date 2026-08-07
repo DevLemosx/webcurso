@@ -87,7 +87,7 @@ function criarCardCurso(curso) {
         <h3 class="card-title">${curso.nome}</h3>
         <p class="card-teacher">Por ${curso.professor || "Vários instrutores"}${metaExtra ? " · " + metaExtra : ""}</p>
         <p class="card-desc">${curso.descricao || ""}</p>
-        <a href="${curso.link}" target="_blank" rel="noopener sponsored" class="card-cta">
+        <a href="${curso.link}" target="_blank" rel="noopener sponsored" class="card-cta" data-curso-id="${curso.id}" data-curso-nome="${curso.nome.replace(/"/g, '&quot;')}" data-curso-tecnologia="${curso.tecnologia}">
           Ver Curso
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M8 7h9v9"/></svg>
         </a>
@@ -95,6 +95,25 @@ function criarCardCurso(curso) {
     </article>
   `;
 }
+
+// ---- Rastreio de cliques nos links de afiliado ---------------------------
+// Delegado no document pra funcionar em qualquer grid (destaques, últimos, catálogo)
+document.addEventListener("click", (evento) => {
+  const link = evento.target.closest(".card-cta");
+  if (!link) return;
+
+  supabaseClient
+    .from("cliques")
+    .insert([{
+      curso_id: link.dataset.cursoId || null,
+      curso_nome: link.dataset.cursoNome || null,
+      tecnologia: link.dataset.cursoTecnologia || null,
+      origem: window.location.pathname,
+    }])
+    .then(({ error }) => {
+      if (error) console.error("Não foi possível registrar o clique:", error);
+    });
+});
 
 // ---- Aplica filtro de tecnologia + busca por texto (nome ou tags) -------
 function renderizarCursos() {

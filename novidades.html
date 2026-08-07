@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Roadmaps | DevLemosx</title>
-<meta name="description" content="Roadmaps de programação passo a passo: Frontend, Backend e Python.">
+<title>Novidades | DevLemosx</title>
+<meta name="description" content="Tudo que foi adicionado recentemente no DevLemosx: cursos, roadmaps, tecnologias e projetos novos.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,9 +21,9 @@
     </a>
     <nav class="header-nav">
       <a href="index.html#cursos">Cursos</a>
-      <a href="roadmaps.html" class="active-link">Roadmaps</a>
+      <a href="roadmaps.html">Roadmaps</a>
       <a href="downloads.html">Downloads</a>
-      <a href="novidades.html">Novidades</a>
+      <a href="novidades.html" class="active-link">Novidades</a>
       <a href="index.html#ferramentas">Ferramentas</a>
     </nav>
   </div>
@@ -32,16 +32,23 @@
 <main>
   <section class="page-hero">
     <div class="container">
-      <p class="section-tag">$ ls ./roadmaps</p>
-      <h1 class="page-title">Escolha sua trilha</h1>
-      <p class="page-subtitle">Passo a passo, do zero até o próximo nível. Marque o que você já concluiu — seu progresso fica salvo só no seu navegador.</p>
+      <p class="section-tag">$ git log --oneline</p>
+      <h1 class="page-title">🔥 Novidades</h1>
+      <p class="page-subtitle">Tudo que foi adicionado recentemente no site — gerado automaticamente a partir do que entra no catálogo.</p>
     </div>
   </section>
 
-  <section class="roadmaps-section">
+  <section class="changelog-section">
     <div class="container">
-      <div id="roadmapsGrid" class="roadmaps-grid">
-        <p class="empty-state">Carregando roadmaps...</p>
+      <div class="filters" id="changelogFilters">
+        <button class="filter-btn active" data-filtro-tipo="todos">Todos</button>
+        <button class="filter-btn" data-filtro-tipo="curso">Cursos</button>
+        <button class="filter-btn" data-filtro-tipo="roadmap">Roadmaps</button>
+        <button class="filter-btn" data-filtro-tipo="tecnologia">Tecnologias</button>
+        <button class="filter-btn" data-filtro-tipo="projeto">Projetos</button>
+      </div>
+      <div id="changelogList" class="changelog-list">
+        <p class="empty-state">Carregando novidades...</p>
       </div>
     </div>
   </section>
@@ -70,7 +77,7 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="roadmaps.js"></script>
+<script src="novidades.js"></script>
 <script src="newsletter.js"></script>
 </body>
 </html>

@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Roadmaps | DevLemosx</title>
-<meta name="description" content="Roadmaps de programação passo a passo: Frontend, Backend e Python.">
+<title>Downloads — Roadmaps em PDF | DevLemosx</title>
+<meta name="description" content="Baixe gratuitamente os roadmaps de Frontend, Backend e Python em PDF — etapas, cursos recomendados e projetos pra praticar, sem cadastro.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,10 +21,9 @@
     </a>
     <nav class="header-nav">
       <a href="index.html#cursos">Cursos</a>
-      <a href="roadmaps.html" class="active-link">Roadmaps</a>
-      <a href="downloads.html">Downloads</a>
+      <a href="roadmaps.html">Roadmaps</a>
+      <a href="downloads.html" class="active-link">Downloads</a>
       <a href="novidades.html">Novidades</a>
-      <a href="index.html#ferramentas">Ferramentas</a>
     </nav>
   </div>
 </header>
@@ -32,16 +31,37 @@
 <main>
   <section class="page-hero">
     <div class="container">
-      <p class="section-tag">$ ls ./roadmaps</p>
-      <h1 class="page-title">Escolha sua trilha</h1>
-      <p class="page-subtitle">Passo a passo, do zero até o próximo nível. Marque o que você já concluiu — seu progresso fica salvo só no seu navegador.</p>
+      <p class="section-tag">$ ls ./downloads</p>
+      <h1 class="page-title">Roadmaps em PDF</h1>
+      <p class="page-subtitle">Todos gratuitos, sem cadastro. Baixe, imprima ou leve no celular pra consultar offline.</p>
     </div>
   </section>
 
   <section class="roadmaps-section">
     <div class="container">
-      <div id="roadmapsGrid" class="roadmaps-grid">
-        <p class="empty-state">Carregando roadmaps...</p>
+      <div class="roadmaps-grid">
+
+        <a href="assets/pdfs/roadmap-frontend.pdf" download class="roadmap-card download-card" data-roadmap="frontend" data-arquivo="roadmap-frontend.pdf">
+          <div class="roadmap-card-icon">📄</div>
+          <h2 class="roadmap-card-title">Roadmap Frontend</h2>
+          <p class="roadmap-card-desc">HTML, CSS, JavaScript, Git e React — do zero até criar interfaces modernas.</p>
+          <span class="roadmap-card-link">📥 Baixar PDF →</span>
+        </a>
+
+        <a href="assets/pdfs/roadmap-backend.pdf" download class="roadmap-card download-card" data-roadmap="backend" data-arquivo="roadmap-backend.pdf">
+          <div class="roadmap-card-icon">📄</div>
+          <h2 class="roadmap-card-title">Roadmap Backend</h2>
+          <p class="roadmap-card-desc">Lógica, PHP, banco de dados, APIs, Docker e deploy — o lado servidor de uma aplicação.</p>
+          <span class="roadmap-card-link">📥 Baixar PDF →</span>
+        </a>
+
+        <a href="assets/pdfs/roadmap-python.pdf" download class="roadmap-card download-card" data-roadmap="python" data-arquivo="roadmap-python.pdf">
+          <div class="roadmap-card-icon">📄</div>
+          <h2 class="roadmap-card-title">Roadmap Python</h2>
+          <p class="roadmap-card-desc">Lógica, Python básico, estruturas de dados, POO, banco de dados e primeiros passos em IA.</p>
+          <span class="roadmap-card-link">📥 Baixar PDF →</span>
+        </a>
+
       </div>
     </div>
   </section>
@@ -70,7 +90,7 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="roadmaps.js"></script>
+<script src="downloads.js"></script>
 <script src="newsletter.js"></script>
 </body>
 </html>

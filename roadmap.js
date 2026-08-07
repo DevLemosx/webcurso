@@ -18,6 +18,13 @@ const progressLabel = document.getElementById("progressLabel");
 let ETAPAS = [];
 let CHAVE_STORAGE = "";
 
+// Qual PDF corresponde a cada roadmap (arquivo dentro de assets/pdfs/)
+const PDF_POR_ROADMAP = {
+  frontend: "roadmap-frontend.pdf",
+  backend: "roadmap-backend.pdf",
+  python: "roadmap-python.pdf",
+};
+
 // ---- Progresso salvo no navegador (sem login) ----------------------------
 function lerProgresso() {
   try {
@@ -95,6 +102,98 @@ function criarEtapaHtml(etapa, cursosPorId) {
   `;
 }
 
+// ---- PDF liberado direto + e-mail opcional pra avisos futuros -------------
+function configurarPdfGate(roadmapTitulo) {
+  const secao = document.querySelector(".pdf-gate-section");
+  const arquivo = PDF_POR_ROADMAP[slug];
+  const botaoBaixar = document.getElementById("pdfDownloadBtn");
+  const form = document.getElementById("pdfGateForm");
+
+  if (!arquivo || !botaoBaixar) {
+    if (secao) secao.hidden = true;
+    return;
+  }
+
+  document.getElementById("pdfGateTitle").textContent = `Baixe o ${roadmapTitulo} em PDF`;
+
+  // Botão de download já liberado — sem cadastro nenhum
+  botaoBaixar.href = `assets/pdfs/${arquivo}`;
+  botaoBaixar.hidden = false;
+  botaoBaixar.addEventListener("click", () => {
+    supabaseClient
+      .from("downloads_pdf")
+      .insert([{ roadmap_slug: slug, arquivo, origem: window.location.pathname }])
+      .then(({ error }) => {
+        if (error) console.error("Não foi possível registrar o download:", error);
+      });
+  });
+
+  // E-mail opcional, só pra quem quiser ser avisado de atualizações
+  if (form) {
+    form.addEventListener("submit", async (evento) => {
+      evento.preventDefault();
+      const emailInput = document.getElementById("pdfGateEmail");
+      const feedback = document.getElementById("pdfGateFeedback");
+      const botao = form.querySelector("button");
+      const email = emailInput.value.trim();
+
+      botao.disabled = true;
+      botao.textContent = "Enviando...";
+
+      try {
+        const { error } = await supabaseClient
+          .from("leads")
+          .insert([{ email, origem: `roadmap-optin:${slug}` }]);
+
+        // Código 23505 = e-mail já cadastrado — trata como sucesso também
+        if (error && error.code !== "23505") throw error;
+
+        feedback.textContent = "✅ Combinado, vou te avisar por aqui.";
+        feedback.className = "newsletter-feedback sucesso";
+        feedback.hidden = false;
+        form.reset();
+      } catch (erro) {
+        feedback.textContent = "Não consegui cadastrar agora. Tenta de novo em instantes.";
+        feedback.className = "newsletter-feedback erro";
+        feedback.hidden = false;
+        console.error("Erro ao cadastrar e-mail opcional:", erro);
+      } finally {
+        botao.disabled = false;
+        botao.textContent = "Avisar";
+      }
+    });
+  }
+}
+
+// ---- Compartilhar roadmap (Web Share API, com fallback pra copiar link) --
+function configurarCompartilhar() {
+  const botao = document.getElementById("shareRoadmapBtn");
+  if (!botao) return;
+
+  botao.addEventListener("click", async () => {
+    const url = window.location.href;
+    const titulo = document.getElementById("roadmapTitulo").textContent;
+
+    if (navigator.share) {
+      try {
+        await navigator.share({ title: `Roadmap ${titulo} — DevLemosx`, url });
+      } catch {
+        // Pessoa cancelou o compartilhamento — não faz nada
+      }
+      return;
+    }
+
+    try {
+      await navigator.clipboard.writeText(url);
+      const textoOriginal = botao.textContent;
+      botao.textContent = "✅ Link copiado!";
+      setTimeout(() => { botao.textContent = textoOriginal; }, 2000);
+    } catch {
+      console.error("Não foi possível copiar o link.");
+    }
+  });
+}
+
 // ---- Carregamento principal -----------------------------------------------
 async function carregarRoadmap() {
   if (!slug) {
@@ -116,6 +215,8 @@ async function carregarRoadmap() {
     document.getElementById("roadmapTag").textContent = `$ cat ./roadmaps/${roadmap.slug}`;
     document.getElementById("roadmapTitulo").textContent = roadmap.titulo;
     document.getElementById("roadmapDescricao").textContent = roadmap.descricao || "";
+
+    configurarPdfGate(roadmap.titulo);
 
     const { data: etapas, error: erroEtapas } = await supabaseClient
       .from("roadmap_etapas")
@@ -153,4 +254,5 @@ async function carregarRoadmap() {
 }
 
 document.getElementById("year").textContent = new Date().getFullYear();
+configurarCompartilhar();
 carregarRoadmap();
