@@ -96,34 +96,88 @@ async function carregarTecnologia() {
       ? cursos.map(criarCardCurso).join("")
       : `<p class="empty-state">Nenhum curso cadastrado ainda pra ${tech.nome}.</p>`;
 
-    // Projetos pra praticar — puxados da etapa correspondente no roadmap
-    if (tech.roadmap_slug && tech.etapa_titulo) {
-      const { data: roadmap } = await supabaseClient
-        .from("roadmaps")
-        .select("id")
-        .eq("slug", tech.roadmap_slug)
-        .single();
+    // Projetos pra praticar — busca direto na tabela projetos pela tecnologia
+    const { data: projetos, error: erroProjetos } = await supabaseClient
+      .from("projetos")
+      .select("*")
+      .contains("tecnologias", [tech.nome])
+      .order("ordem");
 
-      if (roadmap) {
-        const { data: etapa } = await supabaseClient
-          .from("roadmap_etapas")
-          .select("projetos_recomendados")
-          .eq("roadmap_id", roadmap.id)
-          .eq("titulo", tech.etapa_titulo)
-          .single();
-
-        if (etapa && etapa.projetos_recomendados && etapa.projetos_recomendados.length) {
-          document.getElementById("techProjetosBlock").hidden = false;
-          document.getElementById("techProjetos").innerHTML = etapa.projetos_recomendados
-            .map((p) => `<li>${p}</li>`)
-            .join("");
-        }
-      }
+    if (!erroProjetos && projetos && projetos.length) {
+      document.getElementById("techProjetosBlock").hidden = false;
+      document.getElementById("techProjetosGrid").innerHTML = projetos.map(criarProjetoCard).join("");
+      document.querySelectorAll(".req-item input[type='checkbox']").forEach((checkbox) => {
+        checkbox.addEventListener("change", () => alternarRequisito(checkbox));
+      });
+      projetos.forEach((p) => atualizarProgressoProjeto(p.id));
     }
   } catch (erro) {
     console.error("Não foi possível carregar a tecnologia:", erro);
     document.getElementById("techNome").textContent = "Tecnologia não encontrada";
   }
+}
+
+// ---- Progresso do checklist de um projeto (localStorage, sem login) ------
+function chaveProjeto(projetoId) {
+  return `devlemosx_projeto_${projetoId}`;
+}
+
+function lerRequisitosFeitos(projetoId) {
+  try {
+    return JSON.parse(localStorage.getItem(chaveProjeto(projetoId))) || [];
+  } catch {
+    return [];
+  }
+}
+
+function alternarRequisito(checkbox) {
+  const projetoId = checkbox.dataset.projetoId;
+  const index = Number(checkbox.dataset.reqIndex);
+  const feitos = lerRequisitosFeitos(projetoId);
+  const pos = feitos.indexOf(index);
+
+  if (pos === -1) feitos.push(index);
+  else feitos.splice(pos, 1);
+
+  localStorage.setItem(chaveProjeto(projetoId), JSON.stringify(feitos));
+  atualizarProgressoProjeto(projetoId);
+}
+
+function atualizarProgressoProjeto(projetoId) {
+  const card = document.querySelector(`[data-projeto-card="${projetoId}"]`);
+  if (!card) return;
+  const total = card.querySelectorAll(".req-item").length;
+  const feitos = lerRequisitosFeitos(projetoId);
+  card.querySelector(".projeto-progress").textContent = `${feitos.length}/${total} concluído`;
+  card.classList.toggle("projeto-completo", feitos.length === total && total > 0);
+}
+
+// ---- Cria o HTML de um card de projeto -----------------------------------
+function criarProjetoCard(projeto) {
+  const feitos = lerRequisitosFeitos(projeto.id);
+
+  const requisitosHtml = (projeto.requisitos || [])
+    .map((req, i) => `
+      <li class="req-item">
+        <label>
+          <input type="checkbox" data-projeto-id="${projeto.id}" data-req-index="${i}" ${feitos.includes(i) ? "checked" : ""}>
+          <span>${req}</span>
+        </label>
+      </li>
+    `).join("");
+
+  return `
+    <div class="projeto-card" data-projeto-card="${projeto.id}">
+      <div class="projeto-header">
+        <h3 class="projeto-nome">${projeto.nome}</h3>
+        <span class="nivel-badge">${projeto.nivel}</span>
+      </div>
+      <p class="projeto-desc">${projeto.descricao || ""}</p>
+      <p class="step-block-label">Checklist</p>
+      <ul class="req-list">${requisitosHtml}</ul>
+      <p class="projeto-progress">0/0 concluído</p>
+    </div>
+  `;
 }
 
 document.getElementById("year").textContent = new Date().getFullYear();

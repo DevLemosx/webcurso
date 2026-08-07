@@ -78,7 +78,7 @@ img { max-width: 100%; display: block; }
   height: 68px;
 }
 
-.brand-logo { height: 35px; width: auto; }
+.brand-logo { height: 30px; width: auto; }
 
 .header-nav { display: flex; gap: 28px; }
 
@@ -115,8 +115,8 @@ img { max-width: 100%; display: block; }
 .hero-inner { position: relative; z-index: 1; }
 
 .avatar-ring {
-  width: 140px;
-  height: 140px;
+  width: 96px;
+  height: 96px;
   margin: 0 auto 24px;
   border-radius: 50%;
   padding: 3px;
@@ -949,3 +949,96 @@ section { padding: 88px 0; }
    Seção "Tecnologias" na home (reaproveita o visual de roadmap-card)
    ========================================================================== */
 .tech-list-section { border-top: 1px solid var(--border); }
+
+/* ==========================================================================
+   Cards de projeto (Fase 4) — descrição + nível + checklist interativo
+   ========================================================================== */
+.projetos-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.projeto-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px 22px;
+  transition: border-color 0.2s ease;
+}
+
+.projeto-card.projeto-completo { border-color: var(--accent-cyan); }
+
+.projeto-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.projeto-nome {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.02rem;
+  margin: 0;
+}
+
+.nivel-badge {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.projeto-desc {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  margin: 0 0 16px;
+  line-height: 1.6;
+}
+
+.req-list {
+  list-style: none;
+  margin: 0 0 12px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.req-item label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+.req-item input[type="checkbox"] {
+  accent-color: var(--accent-cyan);
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  margin-top: 1px;
+  cursor: pointer;
+}
+
+.req-item input[type="checkbox"]:checked ~ span {
+  color: var(--text-faint);
+  text-decoration: line-through;
+}
+
+.projeto-progress {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent-cyan);
+  margin: 0;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
