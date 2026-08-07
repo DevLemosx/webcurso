@@ -218,6 +218,13 @@ async function carregarRoadmap() {
 
     configurarPdfGate(roadmap.titulo);
 
+    supabaseClient
+      .from("visualizacoes")
+      .insert([{ tipo: "roadmap", referencia: slug, origem: document.referrer || null }])
+      .then(({ error }) => {
+        if (error) console.error("Não foi possível registrar a visualização:", error);
+      });
+
     const { data: etapas, error: erroEtapas } = await supabaseClient
       .from("roadmap_etapas")
       .select("*")

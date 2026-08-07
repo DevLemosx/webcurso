@@ -58,6 +58,30 @@ async function carregarCursos() {
   renderizarDestaques();
 }
 
+// ---- Favoritos (localStorage, sem login) ---------------------------------
+const CHAVE_FAVORITOS = "devlemosx_favoritos";
+
+function lerFavoritos() {
+  try {
+    return JSON.parse(localStorage.getItem(CHAVE_FAVORITOS)) || [];
+  } catch {
+    return [];
+  }
+}
+
+function ehFavorito(cursoId) {
+  return lerFavoritos().includes(cursoId);
+}
+
+function alternarFavorito(cursoId) {
+  const favoritos = lerFavoritos();
+  const pos = favoritos.indexOf(cursoId);
+  if (pos === -1) favoritos.push(cursoId);
+  else favoritos.splice(pos, 1);
+  localStorage.setItem(CHAVE_FAVORITOS, JSON.stringify(favoritos));
+  return pos === -1; // retorna true se acabou de favoritar
+}
+
 // ---- Cria o HTML de um card de curso -----------------------------------
 function criarCardCurso(curso) {
   const sigla = SIGLAS[curso.tecnologia] || "</>";
@@ -70,6 +94,7 @@ function criarCardCurso(curso) {
     : curso.tecnologia;
   const subtitulo = (curso.plataforma ? `${tecnologiaHtml} · ${curso.plataforma}` : tecnologiaHtml) + nota;
   const metaExtra = [curso.carga_horaria, curso.idioma].filter(Boolean).join(" · ");
+  const favoritado = ehFavorito(curso.id);
 
   const bannerConteudo = curso.imagem_url
     ? `<img src="${curso.imagem_url}" alt="${curso.nome}" class="card-img" loading="lazy">`
@@ -81,6 +106,9 @@ function criarCardCurso(curso) {
         ${bannerConteudo}
         <span class="card-price ${classePreco}">${rotuloPreco}</span>
         <span class="card-level">${curso.nivel}</span>
+        <button type="button" class="card-fav-btn ${favoritado ? "ativo" : ""}" data-fav-id="${curso.id}" aria-label="Favoritar curso" title="Favoritar">
+          ${favoritado ? "❤️" : "🤍"}
+        </button>
       </div>
       <div class="card-body">
         <p class="card-category">${subtitulo}</p>
@@ -95,6 +123,16 @@ function criarCardCurso(curso) {
     </article>
   `;
 }
+
+// ---- Clique no coração: alterna favorito sem re-renderizar tudo ----------
+document.addEventListener("click", (evento) => {
+  const botao = evento.target.closest(".card-fav-btn");
+  if (!botao) return;
+  const favoritadoAgora = alternarFavorito(botao.dataset.favId);
+  botao.textContent = favoritadoAgora ? "❤️" : "🤍";
+  botao.classList.toggle("ativo", favoritadoAgora);
+  if (filtroAtivo === "favoritos") renderizarCursos();
+});
 
 // ---- Rastreio de cliques nos links de afiliado ---------------------------
 // Delegado no document pra funcionar em qualquer grid (destaques, últimos, catálogo)
@@ -120,6 +158,7 @@ function renderizarCursos() {
   const termo = termoBusca.trim().toLowerCase();
 
   const filtrados = TODOS_OS_CURSOS.filter((curso) => {
+    if (filtroAtivo === "favoritos") return lerFavoritos().includes(curso.id);
     const passaFiltro = filtroAtivo === "todos" || curso.tecnologia === filtroAtivo;
     const passaBusca =
       curso.nome.toLowerCase().includes(termo) ||

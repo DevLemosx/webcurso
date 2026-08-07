@@ -91,6 +91,54 @@ img { max-width: 100%; display: block; }
 
 .header-nav a:hover { color: var(--accent-cyan); }
 
+.nav-menu-wrap { position: relative; display: flex; align-items: center; }
+
+.nav-menu-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: border-color 0.18s ease, color 0.18s ease;
+}
+
+.nav-menu-btn:hover,
+.nav-menu-btn[aria-expanded="true"] { border-color: var(--accent-cyan); color: var(--accent-cyan); }
+
+.nav-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  min-width: 170px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 16px 32px -12px rgba(0, 0, 0, 0.5);
+  z-index: 50;
+}
+
+.nav-dropdown[hidden] { display: none; }
+
+.nav-dropdown a {
+  padding: 9px 10px;
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text-muted);
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.nav-dropdown a:hover { background: var(--surface-hover); color: var(--accent-cyan); }
+.nav-dropdown a.active-link { color: var(--accent-cyan); }
+
 /* ==========================================================================
    Hero
    ========================================================================== */
@@ -344,6 +392,27 @@ section { padding: 88px 0; }
   height: 100%;
   object-fit: cover;
 }
+
+.card-fav-btn {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: rgba(10, 14, 20, 0.65);
+  backdrop-filter: blur(4px);
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.card-fav-btn:hover { transform: scale(1.1); border-color: var(--accent-cyan); }
+.card-fav-btn.ativo { border-color: var(--accent-cyan); }
 
 .card-hex {
   width: 52px;
@@ -1209,4 +1278,67 @@ section { padding: 88px 0; }
   font-size: 1.05rem;
   color: var(--accent-cyan);
   margin: 0 0 12px;
+}
+
+/* ==========================================================================
+   Dashboard privado (Fase 6)
+   ========================================================================== */
+.dashboard-section { padding-top: 8px; }
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.dash-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 22px 24px;
+}
+
+.dash-card-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1rem;
+  margin: 0 0 16px;
+}
+
+.rank-list { display: flex; flex-direction: column; gap: 12px; }
+
+.rank-row-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 5px;
+}
+
+.rank-label {
+  font-size: 13px;
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rank-value {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--accent-cyan);
+  flex-shrink: 0;
+}
+
+.rank-bar-track {
+  height: 6px;
+  background: var(--bg-soft);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.rank-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-blue));
+  border-radius: 999px;
 }

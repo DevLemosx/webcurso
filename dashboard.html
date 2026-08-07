@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Roadmaps | DevLemosx</title>
-<meta name="description" content="Roadmaps de programação passo a passo: Frontend, Backend e Python.">
+<title>Dashboard | DevLemosx</title>
+<meta name="robots" content="noindex, nofollow">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,7 +21,7 @@
     </a>
     <nav class="header-nav">
       <a href="index.html#cursos">Cursos</a>
-      <a href="roadmaps.html" class="active-link">Roadmaps</a>
+      <a href="roadmaps.html">Roadmaps</a>
       <div class="nav-menu-wrap">
         <button type="button" class="nav-menu-btn" id="navMenuBtn" aria-label="Mais opções" aria-expanded="false">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -29,7 +29,6 @@
         <div class="nav-dropdown" id="navDropdown" hidden>
           <a href="downloads.html">Downloads</a>
           <a href="novidades.html">Novidades</a>
-          <a href="index.html#ferramentas">Ferramentas</a>
         </div>
       </div>
     </nav>
@@ -39,31 +38,43 @@
 <main>
   <section class="page-hero">
     <div class="container">
-      <p class="section-tag">$ ls ./roadmaps</p>
-      <h1 class="page-title">Escolha sua trilha</h1>
-      <p class="page-subtitle">Passo a passo, do zero até o próximo nível. Marque o que você já concluiu — seu progresso fica salvo só no seu navegador.</p>
+      <p class="section-tag">$ select * from analytics --owner-only</p>
+      <h1 class="page-title">📊 Dashboard</h1>
+      <p class="page-subtitle">Só números agregados — sem e-mail, sem clique individual. Página não linkada em lugar nenhum do site.</p>
     </div>
   </section>
 
-  <section class="roadmaps-section">
-    <div class="container">
-      <div id="roadmapsGrid" class="roadmaps-grid">
-        <p class="empty-state">Carregando roadmaps...</p>
-      </div>
-    </div>
-  </section>
+  <section class="dashboard-section">
+    <div class="container dashboard-grid">
+      <article class="dash-card">
+        <h2 class="dash-card-title">📚 Cursos mais clicados</h2>
+        <div id="rankCursos" class="rank-list"><p class="empty-state">Carregando...</p></div>
+      </article>
 
-  <!-- ============ NEWSLETTER ============ -->
-  <section class="newsletter-section">
-    <div class="container newsletter-inner">
-      <p class="section-tag">$ echo "novos cursos toda semana"</p>
-      <h2 class="section-title">📩 Receba novos cursos gratuitamente</h2>
-      <p class="newsletter-desc">Novos cursos, roadmaps e atualizações — no máximo 1 e-mail por semana. Sem spam.</p>
-      <form id="newsletterForm" class="newsletter-form">
-        <input type="email" id="newsletterEmail" placeholder="Seu melhor e-mail" required>
-        <button type="submit" class="cta-btn">Quero receber</button>
-      </form>
-      <p class="newsletter-feedback" id="newsletterFeedback" hidden></p>
+      <article class="dash-card">
+        <h2 class="dash-card-title">🧩 Tecnologias mais clicadas</h2>
+        <div id="rankTecCliques" class="rank-list"><p class="empty-state">Carregando...</p></div>
+      </article>
+
+      <article class="dash-card">
+        <h2 class="dash-card-title">🗺️ Roadmaps mais visualizados</h2>
+        <div id="rankRoadmaps" class="rank-list"><p class="empty-state">Carregando...</p></div>
+      </article>
+
+      <article class="dash-card">
+        <h2 class="dash-card-title">🧩 Páginas de tecnologia mais vistas</h2>
+        <div id="rankTecVistas" class="rank-list"><p class="empty-state">Carregando...</p></div>
+      </article>
+
+      <article class="dash-card">
+        <h2 class="dash-card-title">📄 PDFs mais baixados</h2>
+        <div id="rankDownloads" class="rank-list"><p class="empty-state">Carregando...</p></div>
+      </article>
+
+      <article class="dash-card">
+        <h2 class="dash-card-title">🌐 Cliques por origem</h2>
+        <div id="rankOrigem" class="rank-list"><p class="empty-state">Carregando...</p></div>
+      </article>
     </div>
   </section>
 </main>
@@ -71,14 +82,12 @@
 <footer class="site-footer">
   <div class="container footer-inner">
     <img src="assets/logo.jpg" alt="Logo DevLemosx" class="footer-logo">
-    <p class="footer-disclaimer">Alguns links desta página são links de afiliados. Caso você compre por eles, posso receber uma comissão sem custo adicional para você.</p>
     <p class="footer-copy">© <span id="year"></span> DevLemosx. Todos os direitos reservados.</p>
   </div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="nav.js"></script>
-<script src="roadmaps.js"></script>
-<script src="newsletter.js"></script>
+<script src="dashboard.js"></script>
 </body>
 </html>

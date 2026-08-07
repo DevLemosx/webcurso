@@ -12,6 +12,37 @@ const SIGLAS = { HTML: "<>", CSS: "{}", JavaScript: "JS", Python: "PY", PHP: "PH
 const params = new URLSearchParams(window.location.search);
 const slug = params.get("slug");
 
+const CHAVE_FAVORITOS = "devlemosx_favoritos";
+
+function lerFavoritos() {
+  try {
+    return JSON.parse(localStorage.getItem(CHAVE_FAVORITOS)) || [];
+  } catch {
+    return [];
+  }
+}
+
+function ehFavorito(cursoId) {
+  return lerFavoritos().includes(cursoId);
+}
+
+function alternarFavorito(cursoId) {
+  const favoritos = lerFavoritos();
+  const pos = favoritos.indexOf(cursoId);
+  if (pos === -1) favoritos.push(cursoId);
+  else favoritos.splice(pos, 1);
+  localStorage.setItem(CHAVE_FAVORITOS, JSON.stringify(favoritos));
+  return pos === -1;
+}
+
+document.addEventListener("click", (evento) => {
+  const botao = evento.target.closest(".card-fav-btn");
+  if (!botao) return;
+  const favoritadoAgora = alternarFavorito(botao.dataset.favId);
+  botao.textContent = favoritadoAgora ? "❤️" : "🤍";
+  botao.classList.toggle("ativo", favoritadoAgora);
+});
+
 // ---- Reaproveita o mesmo template de card usado na home ------------------
 function criarCardCurso(curso) {
   const sigla = SIGLAS[curso.tecnologia] || "</>";
@@ -20,6 +51,7 @@ function criarCardCurso(curso) {
   const nota = curso.nota ? ` · ⭐ ${Number(curso.nota).toFixed(1)}` : "";
   const subtitulo = (curso.plataforma ? `${curso.tecnologia} · ${curso.plataforma}` : curso.tecnologia) + nota;
   const metaExtra = [curso.carga_horaria, curso.idioma].filter(Boolean).join(" · ");
+  const favoritado = ehFavorito(curso.id);
   const bannerConteudo = curso.imagem_url
     ? `<img src="${curso.imagem_url}" alt="${curso.nome}" class="card-img" loading="lazy">`
     : `<span class="card-hex">${sigla}</span>`;
@@ -30,6 +62,9 @@ function criarCardCurso(curso) {
         ${bannerConteudo}
         <span class="card-price ${classePreco}">${rotuloPreco}</span>
         <span class="card-level">${curso.nivel}</span>
+        <button type="button" class="card-fav-btn ${favoritado ? "ativo" : ""}" data-fav-id="${curso.id}" aria-label="Favoritar curso" title="Favoritar">
+          ${favoritado ? "❤️" : "🤍"}
+        </button>
       </div>
       <div class="card-body">
         <p class="card-category">${subtitulo}</p>
@@ -87,6 +122,13 @@ async function carregarTecnologia() {
     document.getElementById("techOndeUsar").textContent = tech.onde_usar || "";
     document.getElementById("techSalario").textContent = tech.salario_medio || "—";
     document.getElementById("techSalarioNota").textContent = tech.salario_nota || "";
+
+    supabaseClient
+      .from("visualizacoes")
+      .insert([{ tipo: "tecnologia", referencia: tech.slug, origem: document.referrer || null }])
+      .then(({ error }) => {
+        if (error) console.error("Não foi possível registrar a visualização:", error);
+      });
 
     if (tech.salario_atualizado_em) {
       const data = new Date(tech.salario_atualizado_em + "T00:00:00");

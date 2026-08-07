@@ -22,9 +22,16 @@
     <nav class="header-nav">
       <a href="index.html#cursos">Cursos</a>
       <a href="roadmaps.html">Roadmaps</a>
-      <a href="downloads.html">Downloads</a>
-      <a href="novidades.html" class="active-link">Novidades</a>
-      <a href="index.html#ferramentas">Ferramentas</a>
+      <div class="nav-menu-wrap">
+        <button type="button" class="nav-menu-btn" id="navMenuBtn" aria-label="Mais opções" aria-expanded="false">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <div class="nav-dropdown" id="navDropdown" hidden>
+          <a href="downloads.html">Downloads</a>
+          <a href="novidades.html" class="active-link">Novidades</a>
+          <a href="index.html#ferramentas">Ferramentas</a>
+        </div>
+      </div>
     </nav>
   </div>
 </header>
@@ -77,6 +84,7 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="nav.js"></script>
 <script src="novidades.js"></script>
 <script src="newsletter.js"></script>
 </body>
