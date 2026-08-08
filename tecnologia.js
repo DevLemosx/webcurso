@@ -49,7 +49,11 @@ function criarCardCurso(curso) {
   const rotuloPreco = curso.gratuito ? "Grátis" : (curso.preco || "Pago");
   const classePreco = curso.gratuito ? "gratis" : "pago";
   const nota = curso.nota ? ` · ⭐ ${Number(curso.nota).toFixed(1)}` : "";
-  const subtitulo = (curso.plataforma ? `${curso.tecnologia} · ${curso.plataforma}` : curso.tecnologia) + nota;
+  const outrasTecnologias = Array.isArray(curso.tecnologias)
+    ? curso.tecnologias.filter((t) => t !== curso.tecnologia).length
+    : 0;
+  const maisTexto = outrasTecnologias > 0 ? ` +${outrasTecnologias}` : "";
+  const subtitulo = (curso.plataforma ? `${curso.tecnologia}${maisTexto} · ${curso.plataforma}` : `${curso.tecnologia}${maisTexto}`) + nota;
   const metaExtra = [curso.carga_horaria, curso.idioma].filter(Boolean).join(" · ");
   const favoritado = ehFavorito(curso.id);
   const bannerConteudo = curso.imagem_url
@@ -148,7 +152,7 @@ async function carregarTecnologia() {
     const { data: cursos, error: erroCursos } = await supabaseClient
       .from("cursos")
       .select("*")
-      .eq("tecnologia", tech.nome)
+      .contains("tecnologias", [tech.nome])
       .order("criado_em", { ascending: false });
     if (erroCursos) throw erroCursos;
 

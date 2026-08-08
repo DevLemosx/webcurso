@@ -92,7 +92,11 @@ function criarCardCurso(curso) {
   const tecnologiaHtml = paginaTech
     ? `<a href="tecnologia.html?slug=${paginaTech}" class="card-tech-link">${curso.tecnologia}</a>`
     : curso.tecnologia;
-  const subtitulo = (curso.plataforma ? `${tecnologiaHtml} · ${curso.plataforma}` : tecnologiaHtml) + nota;
+  const outrasTecnologias = Array.isArray(curso.tecnologias)
+    ? curso.tecnologias.filter((t) => t !== curso.tecnologia).length
+    : 0;
+  const maisTexto = outrasTecnologias > 0 ? ` +${outrasTecnologias}` : "";
+  const subtitulo = (curso.plataforma ? `${tecnologiaHtml}${maisTexto} · ${curso.plataforma}` : `${tecnologiaHtml}${maisTexto}`) + nota;
   const metaExtra = [curso.carga_horaria, curso.idioma].filter(Boolean).join(" · ");
   const favoritado = ehFavorito(curso.id);
 
@@ -159,7 +163,8 @@ function renderizarCursos() {
 
   const filtrados = TODOS_OS_CURSOS.filter((curso) => {
     if (filtroAtivo === "favoritos") return lerFavoritos().includes(curso.id);
-    const passaFiltro = filtroAtivo === "todos" || curso.tecnologia === filtroAtivo;
+    const listaTecnologias = Array.isArray(curso.tecnologias) ? curso.tecnologias : [curso.tecnologia];
+    const passaFiltro = filtroAtivo === "todos" || listaTecnologias.includes(filtroAtivo);
     const passaBusca =
       curso.nome.toLowerCase().includes(termo) ||
       (Array.isArray(curso.tags) && curso.tags.some((tag) => tag.toLowerCase().includes(termo)));

@@ -14,11 +14,7 @@ Site criado para centralizar o link da bio do [TikTok](https://tiktok.com/@devle
 
 ## 📸 Preview
 
-<p align="center">
-  <img src="./assets/screenshots/inicio.png" width="60%">
-  <img src="./assets/screenshots/cursos.png" width="60%">
-  <img src="./assets/screenshots/roadmaps.png" width="60%">
-</p>
+*(Adicionar aqui 2–4 capturas de tela depois de publicar o site: Home, Roadmap, Página de tecnologia, Projetos)*
 
 ---
 
@@ -195,11 +191,14 @@ Durante o desenvolvimento do DevLemosx, pratiquei:
 
 ## 👨‍💻 Autor
 
-**Guilherme Lemos**
+**[Seu nome aqui]**
 
 - TikTok: [@devlemosx](https://tiktok.com/@devlemosx)
 - GitHub: [github.com/DevLemosx](https://github.com/DevLemosx)
 - YouTube: [youtube.com/@devlemosx](https://youtube.com/@devlemosx)
-- LinkEndIn: [linkedin.com/Guilherme](www.linkedin.com/in/lemos-guilherme)
 
+---
 
+## ⚠️ Aviso
+
+Alguns links deste projeto são links de afiliados. Caso alguém compre por eles, o autor pode receber uma comissão, sem custo adicional pra quem compra. Isso já está declarado no rodapé do site.
